@@ -1,45 +1,68 @@
+# Load packages -----------------------------------------------------------
+
 library(tidyverse)
 library(skimr)
-library(emmeans)
+library(readxl) # for reading Excel 
 
-weight_df <- read_csv('data/weight.csv')
+# Load data ---------------------------------------------------------------
 
-glimpse(weight_df)
+weight_df <- read_csv('weight.csv')
+# if your have Excel file, i.e. weight.xlsx 
+# read_excel('weight.xlsx')
+
+
+# Summary statistics ------------------------------------------------------
+
 skim(weight_df)
 
-# Selecting columns with "select" -----------------------------------------
+# Simple linear regression ------------------------------------------------
 
-weight_df2 <- select(weight_df, height, weight, gender, age)
+# simple linear regression: outcome variable weight, predictor variable height
 
-select(weight_df, starts_with('wei'))
-select(weight_df, contains('eig'))
-select(weight_df, gender:age)
+m1 <- lm(weight ~ height, data = weight_df)
 
-select(weight_df, where(is.numeric))
-
-# filtering rows with "filter" --------------------------------------------
-
-filter(weight_df, gender == 'Male')
-filter(weight_df, age < 35)
-filter(weight_df, gender == 'Male', age < 35) # Male AND under 35
-filter(weight_df, gender == 'Male' | age < 35)
-
-# t test on height and gender ---------------------------------------------
-
-result_1 <- t.test(height ~ gender, data = weight_df)
+# view the main results
+summary(m1)
 
 
-# Linear regression -------------------------------------------------------
+# multiple linear regression predicting weight from height AND age
 
-result_2 <- lm(weight ~ height, data = weight_df)
-summary(result_2)
-
-result_3 <- lm(weight ~ height + age, data = weight_df)
+m2 <- lm(weight ~ height + age, data = weight_df)
+summary(m2)
 
 
-# ANOVA -------------------------------------------------------------------
+# t-test ------------------------------------------------------------------
 
-result_4 <- aov(weight ~ group, data = PlantGrowth)
-summary(result_4)
+m3 <- t.test(height ~ gender, data = weight_df)
+m3
 
-emmeans(result_4, specs = pairwise ~ group)
+# Correlation coefficient -------------------------------------------------
+
+m4 <- cor.test(~ weight + height, data = weight_df)
+m4
+
+# Scatterplot -------------------------------------------------------------
+
+ggplot(weight_df, aes(x = height, y = weight)) + 
+  geom_point(size = 0.5)
+
+ggplot(weight_df, aes(x = height, y = weight, colour = gender)) + 
+  geom_point(size = 0.5)
+
+ggplot(weight_df, aes(x = height, y = weight, colour = gender)) + 
+  geom_point(size = 0.5) +
+  theme(legend.position = 'top')
+
+ggplot(weight_df, aes(x = height, y = weight, colour = gender)) + 
+  geom_point(size = 0.5) +
+  theme_classic()
+
+
+# Factorial Anova ---------------------------------------------------------
+
+# two way ANOVA
+m5 <- aov(weight ~ gender * factor(race), data = weight_df)
+summary(m5)
+
+
+

@@ -1,12 +1,12 @@
+# So you can write comments/notes to yourself ....
+# Write anything you like
+# write your note here
 
-# preliminary analysis ----------------------------------------------------
+# Preliminary analysis ----------------------------------------------------
 
-# x takes the value of 2 multiplied by 2 ...
-x <- 2 * 2 # this line does multiplication
+x <- 2 ^ 8 # this is 2 to the power of 8 
 y <- x ^ 2
-z <- x + y # this is x + y ....
 
-
-# data visualization ------------------------------------------------------
+# Summary analysis --------------------------------------------------------
 
 
