@@ -1,13 +1,18 @@
 # Recordings
 
-## April, 2025
+## April-May, 2025
 
 These are the recordings of the training sessions held on 30 April, 2025:
 
-* [Session 1](https://vimeo.com/1082188787): In this session, we provided a guided tour of RStudio.
-* [Session 2](https://vimeo.com/1082189932): In this session, we introduced RStudio projects, installing packages, writing R code, writing R scripts.
-* [Session 3](https://vimeo.com/1082190742): In this session, we read in a csv file into RStudio as a data frame, looked at the data frame different way, did a t.test, simple linear regression, multiple
-linear regression, one-way Anova, pairwise comparisons.
+* [Day 1, Session 1](https://vimeo.com/1082188787): In this session, we provided a guided tour of RStudio.
+* [Day 1, Session 2](https://vimeo.com/1082189932): In this session, we introduced RStudio projects, installing packages, writing R code, writing R scripts.
+* [Day 1, Session 3](https://vimeo.com/1082190742): In this session, we read in a csv file into RStudio as a data frame, looked at the data frame different way, did a t.test, simple linear regression, multiple linear regression, one-way Anova, pairwise comparisons.
+
+These are the recordings of the second day of training sessions, held on 12 May, 2025:
+
+* [Day 2, Session 1](https://vimeo.com/1094003598): In this session, we data cleaning using tidyverse/dpylr tools like select, filter, mutate
+* [Day 2, Session 2](https://vimeo.com/1094004136): In this session, initially, we primarily cover data visualization using ggplot and then transition to generalized linear models, particularly binary logistic regression.
+* [Day 2, Session 3](https://vimeo.com/1094004603): In this session, we continue with binary logistic regression and also introduction linear mixed effects models.
 
 
 ## January, 2025
